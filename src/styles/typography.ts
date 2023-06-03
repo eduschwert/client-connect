@@ -5,15 +5,9 @@ import { BaseTitle } from './components/BaseTitle';
 
 interface iStyledTextProps {
   textAlign?: string;
-  fontWeight: '400' | '600' | '700';
   fontSize: 'one' | 'two' | 'three' | 'four';
-  color:
-    | 'var(--color-primary-1)'
-    | 'var(--color-primary-2)'
-    | 'var(--color-gray-100)'
-    | 'var(--color-gray-200)'
-    | 'var(--color-gray-300)'
-    | 'var(--color-gray-400)';
+  fontWeight: '400' | '500' | '600' | '700';
+  color: string;
 }
 
 export const StyledTitle = styled(BaseTitle)<iStyledTextProps>`
@@ -26,35 +20,19 @@ export const StyledTitle = styled(BaseTitle)<iStyledTextProps>`
     switch (fontSize) {
       case 'one':
         return css`
-          font-size: 2.8rem;
+          font-size: 2.4rem;
           @media (max-width: 800px) {
-            font-size: 2rem;
-          }
-          @media (max-width: 400px) {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
           }
         `;
       case 'two':
         return css`
-          font-size: 2.5rem;
+          font-size: 1.8rem;
           @media (max-width: 800px) {
-            font-size: 1.8rem;
-          }
-          @media (max-width: 400px) {
             font-size: 1.4rem;
           }
         `;
       case 'three':
-        return css`
-          font-size: 1.8rem;
-          @media (max-width: 800px) {
-            font-size: 1.5rem;
-          }
-          @media (max-width: 400px) {
-            font-size: 1.25rem;
-          }
-        `;
-      case 'four':
         return css`
           font-size: 1.25rem;
           @media (max-width: 800px) {
@@ -78,9 +56,6 @@ export const StyledText = styled(BaseText)<iStyledTextProps>`
           @media (max-width: 800px) {
             font-size: 1.4rem;
           }
-          @media (max-width: 400px) {
-            font-size: 1.2rem;
-          }
         `;
       case 'two':
         return css`
@@ -88,18 +63,12 @@ export const StyledText = styled(BaseText)<iStyledTextProps>`
           @media (max-width: 800px) {
             font-size: 1.2rem;
           }
-          @media (max-width: 400px) {
-            font-size: 1rem;
-          }
         `;
       case 'three':
         return css`
           font-size: 1.2rem;
           @media (max-width: 800px) {
             font-size: 1rem;
-          }
-          @media (max-width: 400px) {
-            font-size: 0.8rem;
           }
         `;
       case 'four':

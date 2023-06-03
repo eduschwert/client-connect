@@ -2,13 +2,20 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
    :root {
-    --color-primary-1: #47B1FF;
-    --color-primary-2: #2F8FAA;
+    --color-brand-1: #47B1FF;
+    --color-brand-2: #2F8FAA;
 
-    --color-gray-100: #212529;
-    --color-gray-200: #868E96;
-    --color-gray-300: #E9ECEF;
-    --color-gray-400: #F8F9FA;
+    --color-grey-0: #0B0D0D;
+    --color-grey-1: #212529;
+    --color-grey-2: #495057;
+    --color-grey-3: #868E96;
+    --color-grey-4: #ADB5BD;
+    --color-grey-5: #CED4DA;
+    --color-grey-6: #DEE2E6;
+    --color-grey-7: #E9ECEF;
+    --color-grey-8: #F1F3F5;
+    --color-grey-9: #F8F9FA;
+    --color-grey-10: #FDFDFD;
 
     --color-negative: #E60000;
     --color-sucess: #168821;
@@ -56,5 +63,9 @@ export default createGlobalStyle`
 
   a {
     text-decoration: none;
+  }
+
+  fieldset{
+    border: none;
   }
 `;
