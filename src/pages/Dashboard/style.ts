@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { StyledButton } from '../../styles/buttons';
 
 export const Containter = styled.div`
   width: 130rem;

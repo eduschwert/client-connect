@@ -16,7 +16,7 @@ import { AxiosError } from 'axios';
 interface iContactProviderProps {
   children: ReactNode;
 }
-// signUp
+
 interface iContactContextValues {
   contacts: iContact[] | null;
   createContact: (data: iContactData, toggleModal: () => void) => void;
@@ -35,12 +35,10 @@ interface iContactContextValues {
 }
 
 interface iContact {
-  id: string;
+  id?: string;
   name: string;
   email: string;
   phone: string;
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 export const ContactContext = createContext<iContactContextValues>(

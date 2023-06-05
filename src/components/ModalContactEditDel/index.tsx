@@ -16,7 +16,7 @@ import { StyledDivButtons } from '../ModalPerfil/style';
 
 interface iModalContactProps {
   toggleModal: () => void;
-  contact: iContactData | null;
+  contact: iContactData;
 }
 
 export const ModalContactEditDel = ({

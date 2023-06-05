@@ -25,7 +25,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ```bash
 # Clone este repositório
-$ git clone <>
+$ git clone <git@github.com:eduschwert/client-connect.git>
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd client-connect
