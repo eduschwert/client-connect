@@ -1,12 +1,12 @@
 import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
-import { StyledInput } from './style';
 import { StyledText } from '../../styles/typography';
+import { StyledInput } from './style';
 
 interface iInputProps {
   id: string;
   label?: string;
   type: 'text' | 'email' | 'password';
-  register?: UseFormRegisterReturn;
+  register: UseFormRegisterReturn;
   placeholder?: string;
   error?: FieldError;
   disabled?: boolean;

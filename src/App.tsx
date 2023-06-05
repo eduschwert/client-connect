@@ -1,14 +1,16 @@
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import GlobalStyle from './styles/GlobalStyle';
-import { Login } from './pages/Login';
+import { UserProvider } from './providers/UserProvider';
+import { RoutesMain } from './routes';
 
 export const App = () => {
   return (
     <>
       <GlobalStyle />
       <ToastContainer
-        position="top-right"
-        autoClose={2000}
+        position="bottom-right"
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -19,7 +21,9 @@ export const App = () => {
         theme="light"
         style={{ fontSize: '1.4rem', fontWeight: '700' }}
       />
-      <Login />
+      <UserProvider>
+        <RoutesMain />
+      </UserProvider>
     </>
   );
 };

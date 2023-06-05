@@ -1,6 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { FieldError } from 'react-hook-form';
 
-export const StyledForm = styled.form`
+interface iStyledFormProp {
+  error?: FieldError;
+}
+
+export const StyledForm = styled.form<iStyledFormProp>`
   width: 100%;
   max-width: 36.4rem;
   padding: 1.4rem 1.8rem;
@@ -36,7 +41,6 @@ export const StyledForm = styled.form`
     background: var(--color-grey-8);
     padding: 0px 16px;
     border-radius: var(--radius-1);
-    border: none;
     font-weight: 400;
     font-size: 1.6rem;
     color: var(--color-grey-1);

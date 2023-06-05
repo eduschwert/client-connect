@@ -1,5 +1,4 @@
-import styled, { css } from 'styled-components';
-import { iStyledInputProps } from '../../components/Input/style';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 100vh;
@@ -8,7 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
 
   @media (min-width: 728px) {
-    flex-direction: row;
+    flex-direction: row-reverse;
   }
 `;
 
@@ -27,7 +26,7 @@ export const StyledLogoBoard = styled.div`
     margin-bottom: 1rem;
   }
 
-  & > .loginIMG {
+  & > .registerIMG {
     object-fit: cover;
     width: 100%;
     max-width: 427px;
@@ -56,18 +55,5 @@ export const StyledFormBoard = styled.div`
   @media (min-width: 728px) {
     width: 60%;
     height: 100%;
-  }
-`;
-
-export const StyledFieldset = styled.fieldset<iStyledInputProps>`
-  input {
-    border: 0.2rem solid var(--color-grey-8);
-    ${({ error }) => {
-      if (error) {
-        return css`
-          border: 0.2rem solid var(--color-negative);
-        `;
-      }
-    }}
   }
 `;

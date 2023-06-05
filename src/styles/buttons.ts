@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 interface iStyledButtonProps {
   buttonSize: 'default' | 'small';
-  buttonStyle: 'primary' | 'grey';
+  buttonStyle: 'primary' | 'grey' | 'red';
 }
 
 export const buttonCSS = css<iStyledButtonProps>`
@@ -60,6 +60,18 @@ export const buttonCSS = css<iStyledButtonProps>`
           &:hover {
             background: var(--color-grey-6);
             border: 0.2rem solid var(--color-grey-6);
+          }
+        `;
+      case 'red':
+        return css`
+          background: var(--color-grey-6);
+          border: 0.2rem solid var(--color-grey-6);
+
+          color: var(--color-grey-1);
+
+          &:hover {
+            background: var(--color-negative);
+            border: 0.2rem solid var(--color-negative);
           }
         `;
       default:

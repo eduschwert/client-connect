@@ -2,19 +2,25 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Container, StyledFormBoard, StyledLogoBoard } from './styles';
 import logo from '../../assets/logo.svg';
-import login from '../../assets/login.svg';
+import loginIMG from '../../assets/login.svg';
 import { StyledText, StyledTitle } from '../../styles/typography';
 import { Input } from '../../components/Input';
 import { StyledForm } from '../../styles/Form';
 import { StyledButton, StyledLinkButton } from '../../styles/buttons';
-// import { LoginData, schema } from "./validator"
-// import { useAuth } from "../../hooks/useAuth"
+import { useUser } from '../../hooks/useUser';
+import { iLoginData, schema } from './validator';
+import { TailSpin } from 'react-loader-spinner';
 
 export const Login = () => {
-  // const {signIn} = useAuth();
-  // const { register, handleSubmit } = useForm<LoginData>({
-  //   resolver: zodResolver(schema)
-  // })
+  const { signIn, localLoading } = useUser();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<iLoginData>({
+    resolver: zodResolver(schema),
+    mode: 'onBlur',
+  });
 
   return (
     <main>
@@ -29,7 +35,7 @@ export const Login = () => {
           >
             Gerenciador de contatos
           </StyledTitle>
-          <img className="loginIMG" src={login} alt="Logo" />
+          <img className="loginIMG" src={loginIMG} alt="Logo" />
           <StyledTitle
             tag="h2"
             fontSize="two"
@@ -42,7 +48,7 @@ export const Login = () => {
           </StyledTitle>
         </StyledLogoBoard>
         <StyledFormBoard>
-          <StyledForm>
+          <StyledForm onSubmit={handleSubmit(signIn)} noValidate>
             <StyledTitle
               tag="h3"
               fontSize="two"
@@ -52,30 +58,50 @@ export const Login = () => {
               Acesse sua conta
             </StyledTitle>
             <Input
+              register={register('email')}
+              error={errors.email}
+              disabled={localLoading}
               id="email"
               label="Email"
               type="email"
               placeholder="Seu email"
             />
             <Input
+              register={register('password')}
+              error={errors.password}
+              disabled={localLoading}
               id="password"
               label="Senha"
               type="password"
               placeholder="Sua senha"
             />
-            <StyledButton buttonSize="default" buttonStyle="primary">
-              Acessar
+            <StyledButton
+              type="submit"
+              buttonSize="default"
+              buttonStyle="primary"
+            >
+              <TailSpin
+                height="100%"
+                width="100%"
+                color="#F8F9FA"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{ width: '100%', height: '50%' }}
+                wrapperClass=""
+                visible={localLoading}
+              />
+              {!localLoading && 'Acessar'}
             </StyledButton>
             <StyledText
               tag="p"
-              fontSize="one"
+              fontSize="two"
               fontWeight="500"
               color="var(--color-grey-1)"
             >
               Ainda não possui uma conta?
             </StyledText>
             <StyledLinkButton
-              to="/regiter"
+              to="/register"
               buttonSize="default"
               buttonStyle="grey"
             >
